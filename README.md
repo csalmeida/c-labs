@@ -14,7 +14,7 @@ will bind this project folder to the container's `/home/source/` and
 it will keep the container alive indefinetly so that the project can be worked on.
 
 ```bash
-docker compose up -d
+docker compose up --detach
 ```
 
 Then access the container using the ID if known or the name which will always be `clang`:

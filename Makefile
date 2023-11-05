@@ -1,3 +1,3 @@
 all: docker
-	docker compose up -d
+	docker compose up --detach
 	docker exec -it clang /bin/bash 
