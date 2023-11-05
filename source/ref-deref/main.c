@@ -2,5 +2,8 @@
 
 int main(void) {
   int n = 50;
-  printf("%p\n", &n);
+  int *p = &n;
+
+  printf("The address of n: %p\n", &n);
+  printf("The value of n via pointer p: %i\n", *p);
 }
