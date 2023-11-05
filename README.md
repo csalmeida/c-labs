@@ -1,6 +1,6 @@
-# Some C
+# C Labs
 
-Experiments with C.
+Experiments and short programs written in C.
 
 ## Requirements
 
