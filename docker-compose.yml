@@ -1,0 +1,16 @@
+services:
+  clang:
+    # Building a custom image described in a docker file.
+    build:
+      # Setting a context and dockerfile paths allows for Dockerfiles to be stored away in a sub-directory.
+      context: . # Context of build, this is where the project files are stored.
+      dockerfile: ./docker/clang.dockerfile # The path to Dockerfile and name of the dockerfile to be built
+    container_name: clang
+    working_dir: /home/project/source # Start at the working directory, where files are copied to.
+    # Running in interactive mode keeps the container alive indefinetly.
+    # Useful to work on a program from the host machine and running it in a container multiple times.
+    stdin_open: true # docker run -i
+    tty: true # docker run -t
+    volumes:
+      # Allows changes made to project directory to be accessed by the container via a bind mount.
+      - ${PWD}:/home/project
