@@ -19,5 +19,8 @@ int main(void) {
   printf("source: %s\n", source);
   printf("target: %s\n", target);
 
+  // Frees allocated memory:
+  free(target);
+
   return 0;
 }
