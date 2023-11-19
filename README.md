@@ -35,6 +35,9 @@ Compile programs and run `binaries` as needed:
 # Compile the program:
 gcc -o hello ./hello.c
 
+# or with clang:
+clang -g -Wall -std=c99 -o hello ./hello.c
+
 # Run the program:
 ./hello
 ```
