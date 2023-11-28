@@ -1,8 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdint.h> // Allows integer sizes to be specified.
 
-int to_bits(int bytes) {
-  int bits = bytes * 8;
+int to_bits(int8_t bytes) {
+  int64_t bits = bytes * 8;
   return bits; 
 }
 
