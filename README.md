@@ -33,13 +33,13 @@ Compile programs and run `binaries` as needed:
 
 ```bash
 # Compile the program:
-gcc -o hello ./hello.c
+gcc -o main ./main.c
 
 # or with clang:
-clang -g -Wall -std=c99 -o hello ./hello.c
+clang -g -Wall -std=c99 -o main ./main.c
 
 # Run the program:
-./hello
+./main
 ```
 
 When done, exit the interactive terminal with `Ctrl+C` and remove the containers or type `exit`:
