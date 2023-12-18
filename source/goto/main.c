@@ -38,11 +38,14 @@ int complex_function_if(void) {
   } 
 
   if (initialize_2() != EXIT_SUCCESS) { 
-    deinitialize_2();
+    deinitialize_2(); 
+    deinitialize_1(); 
   } 
 
   if (initialize_3() != EXIT_SUCCESS) { 
     deinitialize_3(); 
+    deinitialize_2(); 
+    deinitialize_1(); 
   }
 
   if (initialize_3() != EXIT_SUCCESS || initialize_2() != EXIT_SUCCESS || initialize_1() != EXIT_SUCCESS) {
