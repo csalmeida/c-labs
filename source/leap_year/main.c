@@ -43,6 +43,7 @@ uint16_t get_year() {
         printf("Please type in a year: ");
 
         // Check if the input is an integer
+        // FIXME: Maybe atoi can be used here:
         if (scanf("%d", &user_number) == 1 && user_number <= max_year) {
             return (uint32_t)user_number; // Exit the loop if a valid integer is entered
         } 
