@@ -42,6 +42,12 @@ clang -g -Wall -std=c99 -o main ./main.c
 ./main
 ```
 
+The command can also be combined so that it tries to run after it is compiled:
+
+```bash
+clang -g -Wall -std=c99 -o main ./main.c && ./main
+```
+
 When done, exit the interactive terminal with `Ctrl+C` and remove the containers or type `exit`:
 
 ```bash
