@@ -273,7 +273,8 @@ double calculate_jd(uint64_t jdn, uint16_t hour, uint16_t minutes, uint16_t seco
 
   double fraction_of_time = hour_fd + minutes_fd + seconds_fd;
 
-  // Needs an adjustment so the fractional part is always positive: 
+  // Needs an adjustment so that the fractional part is always positive.
+  // A negative fraction_of_time would lead to incorrect day.
   // Compared with Nasa's results: https://ssd.jpl.nasa.gov/tools/jdc/#/cd
   fraction_of_time = fraction_of_time + 1.0;
     
