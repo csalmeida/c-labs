@@ -17,14 +17,13 @@ double calculate_fraction_of_day(uint16_t hour, uint16_t minutes, uint16_t secon
 double calculate_jd(uint64_t jdn, uint16_t hour, uint16_t minutes, uint16_t seconds);
 void run_jdn_converter();
 
-
 // Test related functions:
 bool assert(bool predicate);
 bool test(const char *name, bool passed);
 void tests();
 
 int main() {
-  // Requests year as input and prints a result to the terminal:
+  // Requests date as input and prints a result to the terminal:
   // run_jdn_converter();
 
   // Running tests (optional): 
