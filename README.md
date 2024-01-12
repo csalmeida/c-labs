@@ -76,3 +76,9 @@ target: Hello
 ==40== For counts of detected and suppressed errors, rerun with: -v
 ==40== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
 ```
+
+The _clang static analyzer_ can also be used with `scan-build`:
+
+```bash
+scan-build clang main.c
+```
