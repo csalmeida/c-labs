@@ -82,3 +82,13 @@ The _clang static analyzer_ can also be used with `scan-build`:
 ```bash
 scan-build clang main.c
 ```
+
+The output should look similar to the following:
+
+```bash
+root@3fc228fa345f:/home/project/source/arrays# scan-build clang main.c
+scan-build: Using '/usr/lib/llvm-16/bin/clang' for static analysis
+scan-build: Analysis run complete.
+scan-build: Removing directory '/tmp/scan-build-2024-01-14-233048-110-1' because it contains no reports.
+scan-build: No bugs found.
+```
