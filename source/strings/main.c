@@ -2,9 +2,11 @@
 #include <stdlib.h>
 
 void storing_characters_individually();
+void storing_characters_in_array();
 
 int main() {
   storing_characters_individually();
+  storing_characters_in_array();
   return EXIT_SUCCESS;
 }
 
@@ -23,4 +25,15 @@ void storing_characters_individually() {
   printf("Printing chars as ints:\n");
   printf("%i %i %i", c1,c2,c3);
   printf("\n\n");
+}
+
+void storing_characters_in_array() {
+   char name[15] = {
+     'T', 'h', 'e', 
+     ' ', 'C', ' ', 
+     'L', 'a', 'n', 'g', 'u', 'a', 'g', 'e', 
+     '\0' 
+    };
+
+    printf("%s\n", name);
 }
