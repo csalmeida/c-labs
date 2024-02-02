@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 
 void storing_characters_individually();
 void storing_characters_in_array();
@@ -35,5 +36,11 @@ void storing_characters_in_array() {
      '\0' 
     };
 
+    // The amount of characters present in the string.
+    // Does not include the null character but
+    // includes \n and other special characters.
+    size_t length = strlen(name);
+
     printf("%s\n", name);
+    printf("String length is: %zu\n", length);
 }
