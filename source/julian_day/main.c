@@ -1,4 +1,4 @@
-#include <stdio.h> 
+#include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h> // Allows integer sizes to be specified.
 #include <stdbool.h> // Allows the bool type to be used.
@@ -26,7 +26,7 @@ int main() {
   // Requests date as input and prints a result to the terminal:
   // run_jdn_converter();
 
-  // Running tests (optional): 
+  // Running tests (optional):
   tests();
 
   return EXIT_SUCCESS;
@@ -54,7 +54,7 @@ uint16_t get_day() {
         // FIXME: Maybe atoi can be used here:
         if (scanf("%d", &user_number) == 1 && user_number <= max_day) {
             return (uint32_t)user_number; // Exit the loop if a valid integer is entered
-        } 
+        }
           else if (user_number > max_day) {
             // Clear the input buffer in case of invalid input
             while (getchar() != '\n');
@@ -82,7 +82,7 @@ uint16_t get_month() {
         // FIXME: Maybe atoi can be used here:
         if (scanf("%d", &user_number) == 1 && user_number <= max_month) {
             return (uint32_t)user_number; // Exit the loop if a valid integer is entered
-        } 
+        }
           else if (user_number > max_month) {
             // Clear the input buffer in case of invalid input
             while (getchar() != '\n');
@@ -110,7 +110,7 @@ uint16_t get_year() {
         // FIXME: Maybe atoi can be used here:
         if (scanf("%d", &user_number) == 1 && user_number <= max_year) {
             return (uint32_t)user_number; // Exit the loop if a valid integer is entered
-        } 
+        }
           else if (user_number >= max_year) {
             // Clear the input buffer in case of invalid input
             while (getchar() != '\n');
@@ -137,7 +137,7 @@ uint16_t get_hour() {
         // Check if the input is an integer
         if (scanf("%d", &user_number) == 1 && user_number <= max_hour) {
             return (uint32_t)user_number; // Exit the loop if a valid integer is entered
-        } 
+        }
           else if (user_number > max_hour) {
             // Clear the input buffer in case of invalid input
             while (getchar() != '\n');
@@ -164,7 +164,7 @@ uint16_t get_minutes() {
         // Check if the input is an integer
         if (scanf("%d", &user_number) == 1 && user_number <= max_minutes) {
             return (uint32_t)user_number; // Exit the loop if a valid integer is entered
-        } 
+        }
           else if (user_number > max_minutes) {
             // Clear the input buffer in case of invalid input
             while (getchar() != '\n');
@@ -191,7 +191,7 @@ uint16_t get_seconds() {
         // Check if the input is an integer
         if (scanf("%d", &user_number) == 1 && user_number <= max_seconds) {
             return (uint32_t)user_number; // Exit the loop if a valid integer is entered
-        } 
+        }
           else if (user_number > max_seconds) {
             // Clear the input buffer in case of invalid input
             while (getchar() != '\n');
@@ -205,7 +205,7 @@ uint16_t get_seconds() {
     return EXIT_SUCCESS;
 }
 
-// Runs the following algorithm to calculate the Julian Number Day from a Gragorian date:
+// Runs the following algorithm to calculate the Julian Number Day from a Gregorian date:
 // JDN = (1461 × (Y + 4800 + (M − 14)/12))/4 +(367 × (M − 2 − 12 × ((M − 14)/12)))/12 − (3 × ((Y + 4900 + (M - 14)/12)/100))/4 + D − 32075
 uint64_t convert_to_jdn(uint16_t day, uint16_t month, uint16_t year) {
   // Fail if any date inputs are 0:
@@ -244,20 +244,20 @@ double calculate_fraction_of_day(uint16_t hour, uint16_t minutes, uint16_t secon
   uint8_t seconds_per_minute = 60;
   uint16_t seconds_per_hour = 3600;
   uint32_t seconds_per_day = 86400; // 60sec * 60min * 24hours
-  
+
   // Convert hours and minutes to seconds:
   uint32_t hour_in_seconds = hour * seconds_per_hour;
   uint32_t minutes_in_seconds = minutes * seconds_per_minute;
 
   // Add the time up:
   uint32_t total_seconds = hour_in_seconds + minutes_in_seconds + seconds;
-  
+
   // Dividing by the seconds in a day results in a fraction. e.g. 0.1 is 10% of a day, 0.5 is 50%.
   double fraction_of_day = (double) total_seconds / (double) seconds_per_day;
   return fraction_of_day;
 }
 
-// Receives a Julian Day Number and calculates the time 
+// Receives a Julian Day Number and calculates the time
 // represented as a fraction, appended to the JDN result.
 double calculate_jd(uint64_t jdn, uint16_t hour, uint16_t minutes, uint16_t seconds) {
   // Since there are 24 hours in a day, dividing the hour by 24 gives the fraction of the day that has passed.
@@ -265,10 +265,10 @@ double calculate_jd(uint64_t jdn, uint16_t hour, uint16_t minutes, uint16_t seco
   double hour_fd = (double) (hour - 12) / 24;
 
   //There are 60 minutes in an hour, so dividing the minute by 1440 (which is 24×6024×60) gives the fraction of the day represented by the minutes.
-  double minutes_fd = (double) minutes / 1440; 
+  double minutes_fd = (double) minutes / 1440;
 
   // Since there are 60 seconds in a minute and 60 minutes in an hour (totaling 3600 seconds in an hour), dividing the seconds by 86400 (which is 24×60×6024×60×60) gives the fraction of the day represented by the seconds.
-  double seconds_fd = (double) seconds / 86400; 
+  double seconds_fd = (double) seconds / 86400;
 
   double fraction_of_time = hour_fd + minutes_fd + seconds_fd;
 
@@ -276,8 +276,8 @@ double calculate_jd(uint64_t jdn, uint16_t hour, uint16_t minutes, uint16_t seco
   // A negative fraction_of_time would lead to incorrect day.
   // Compared with Nasa's results: https://ssd.jpl.nasa.gov/tools/jdc/#/cd
   fraction_of_time = fraction_of_time + 1.0;
-    
-  double jd = (double) jdn + fraction_of_time;    
+
+  double jd = (double) jdn + fraction_of_time;
   return jd;
 }
 
@@ -310,7 +310,7 @@ bool assert_not(bool predicate) {
   return predicate == false;
 }
 
-// Asserts that a value exits with a success status, useful to implement basic test functionality. 
+// Asserts that a value exits with a success status, useful to implement basic test functionality.
 // Similar to assert, the difference is that this function does not take a bool as an argument.
 bool assert_exit_success(uint8_t status) {
   return status == EXIT_SUCCESS;
@@ -399,4 +399,3 @@ void tests() {
 
   printf("\nTest job finished. \n\n");
 }
-
