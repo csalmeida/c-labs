@@ -50,7 +50,6 @@
    How can you modify a value through a pointer?
    What's the difference between the variable name and its address? */
 
-#include <math.h>
 #include <stdio.h> // For printf and scanf.
 #include <stdlib.h> // For return exit types.
 
