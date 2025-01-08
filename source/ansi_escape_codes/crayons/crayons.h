@@ -480,7 +480,7 @@ void print_formatted(TextFormat* fmt, const char* message) {
         }
     }
 
-    printf("m%s\033[0m\n", message);
+    printf("m%s\033[0m", message);
 }
 
 /*

@@ -45,11 +45,49 @@ int main(void) {
 
   TextFormat header = new_text_format();
   TextFormat* h = &header;
-  h = set_ansi_color(h, ANSI_BRIGHT_CYAN);      // Bright cyan text
+  h = set_ansi_color(h, ANSI_WHITE);      // Bright cyan text
   h = set_ansi_style(h, ANSI_BOLD);            // Bold
-  h = set_ansi_style(h, ANSI_UNDERLINE);       // Underlined
-  h = set_ansi_bg(h, ANSI_WHITE);
-  print_formatted(h, "\n == Section Header == ");
+  h = set_rgb_bg(h, 148, 0, 211);
+
+  printf("\n");
+  printf("\n");
+  print_formatted(h, " == Section Header == ");
+  printf("\n");
+  printf("\n");
+
+  TextFormat title = new_text_format();
+  TextFormat* p_title = &title;
+  p_title = set_ansi_color(p_title, ANSI_BLACK);      // Bright cyan text
+  p_title = set_ansi_bg(p_title, ANSI_GREEN);
+  p_title = set_ansi_style(p_title, ANSI_BOLD);            // Bold     // Underlined
+  print_formatted(p_title, " Result: ");
+
+  TextFormat content = new_text_format();
+  TextFormat* p_content = &content;
+  print_formatted(p_content, " 0b101100100\n");
+
+  printf("\n");
+  // Example with multiple styles on one line
+  TextFormat label = new_text_format();
+  TextFormat* p_label = &label;
+  p_label = set_ansi_color(p_label, ANSI_WHITE);
+  p_label = set_ansi_bg(p_label, ANSI_BLUE);
+  p_label = set_ansi_style(p_label, ANSI_BOLD);
+  print_formatted(p_label, " Status: ");
+
+  TextFormat status = new_text_format();
+  TextFormat* p_status = &status;
+  p_status = set_rgb_color(p_status, 255, 165, 0);
+  print_formatted(p_status, " Processing ");
+
+  TextFormat progress = new_text_format();
+  TextFormat* p_progress = &progress;
+  p_progress = set_ansi_color(p_progress, ANSI_GREEN);
+  print_formatted(p_progress, "[=====>    ]");  // Adds newline at the end
+  printf("\n");
+  printf("\n");
+
+
 
   return EXIT_SUCCESS;
 }
